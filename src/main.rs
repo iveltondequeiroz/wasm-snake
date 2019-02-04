@@ -2,7 +2,7 @@
 extern crate stdweb;
 
 mod canvas;
-mode direction;
+mod direction;
 
 fn main() {
     println!("Hello, world!");
