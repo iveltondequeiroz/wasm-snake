@@ -3,7 +3,13 @@ extern crate stdweb;
 
 mod canvas;
 mod direction;
+mod snake;
+
+
+use canvas::Canvas;
 
 fn main() {
-    println!("Hello, world!");
+    stdweb::initialize();
+    
+    stdweb::event_loop();
 }
