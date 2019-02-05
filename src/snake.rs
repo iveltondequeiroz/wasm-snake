@@ -1,5 +1,5 @@
-use canvas::Canvas;
-use direction::Direction;
+use crate::canvas::Canvas;
+use crate::direction::Direction;
 use stdweb::unstable::TryInto;
 
 #[derive(Debug, Copy, Clone, Eq, PartialEq)]
@@ -19,11 +19,11 @@ pub struct Snake {
 
 impl Snake {
     pub fn new(width: u32, height: u32) -> Snake {
-        let head_x: u32 = js! { return Math.floor(Math.random() * @{width}) }
+        let head_x: u32 = js! {return Math.floor(Math.random() * @{width})}
             .try_into()
             .unwrap();
 
-        let head_y: u32 = js! { return Math.floor(Math.random() * @{height}) }
+        let head_y: u32 = js! {return Math.floor(Math.random() * @{height})}
             .try_into()
             .unwrap();
 
@@ -32,7 +32,6 @@ impl Snake {
         let food_x: u32 = js! { return Math.floor(Math.random() * @{width}) }
             .try_into()
             .unwrap();
-
         let food_y: u32 = js! { return Math.floor(Math.random() * @{height}) }
             .try_into()
             .unwrap();
@@ -54,9 +53,9 @@ impl Snake {
 
     pub fn change_direction(&mut self, direction: Direction) {
         if !self.last_direction.opposite(direction) && self.direction.is_none() {
-            self.direction = Some(direction);
+            self.direction = Some(direction)
         } else if self.direction.iter().any(|d| !d.opposite(direction)) {
-            self.next_direction = Some(direction);
+            self.next_direction = Some(direction)
         }
     }
 
